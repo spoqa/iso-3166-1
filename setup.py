@@ -27,9 +27,32 @@ def get_version():
 
 
 setup(
-    name='iso3166_1'
+    name='iso 3166-1',
+    version=get_version(),
     description='ISO 3361-1 Country code package for Python',
     long_description=readme(),
-    version=get_version(),
-    url=
+    license='Public Domain',
+    author='Kang Hyojun',
+    author_email='ed' '@' 'spoqa.com',
+    packages=find_packages(),
+    package_data={'is3166': ['table.csv']},
+    url='http://github.com/spoqa/iso3166',
+    keywords='internationalization i18n country iso3166',
+    classifiers=[
+        'Development Status :: 1 - Planning',
+        'Intended Audience :: Developers',
+        'License :: Public Domain',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python :: 2.5',
+        'Programming Language :: Python :: 2.6',
+        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.2',
+        'Programming Language :: Python :: 3.3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: Implementation :: CPython',
+        'Programming Language :: Python :: Implementation :: PyPy',
+        'Programming Language :: Python :: Implementation :: Stackless',
+        'Topic :: Software Development :: Internationalization',
+    ]
 )
