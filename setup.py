@@ -42,7 +42,7 @@ def get_install_requirements():
 
 
 setup(
-    name='python-iso3166',
+    name='iso-3166-1',
     version=get_version(),
     description='ISO 3361-1 Country code package for Python',
     long_description=readme(),
@@ -51,7 +51,7 @@ setup(
     author_email='ed' '@' 'spoqa.com',
     packages=find_packages(),
     package_data={'iso3166': ['table.csv']},
-    url='http://github.com/spoqa/iso3166',
+    url='http://github.com/spoqa/iso-3166-1',
     keywords='internationalization i18n country iso3166',
     install_requires=get_install_requirements(),
     extras_require={
