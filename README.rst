@@ -1,6 +1,9 @@
 ISO 3166-1
 ~~~~~~~~~~~~
 
+.. image:: https://badge.fury.io/py/iso-3166-1.svg
+    :target: http://badge.fury.io/py/iso-3166-1
+
 define codes for the names of countries as a enum_ it supports python2.7, 3.3
 with enum34_ of course support python3.4 as well.
 
