@@ -1,0 +1,8 @@
+*.egg-info
+__pycache__
+.idea
+.tox
+
+build
+dist
+*.py[c|o]

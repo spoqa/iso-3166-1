@@ -1,6 +1,7 @@
 from setuptools import setup, find_packages
 
 import ast
+import sys
 
 
 def readme():
@@ -15,7 +16,8 @@ def readme():
 
 
 def get_version():
-    with open(filename) as f:
+    filename = 'iso3166/__init__.py'
+    with open(filename, 'r') as f:
         tree = ast.parse(f.read(), filename)
         for node in tree.body:
             if (isinstance(node, ast.Assign) and
@@ -26,8 +28,21 @@ def get_version():
         return version
 
 
+tests_require = [
+    'pytest >= 2.7.0',
+    'tox >= 2.1.1',
+]
+
+
+def get_install_requirements():
+    install_requires = ['setuptools']
+    if 'bdist_wheel' not in sys.argv and sys.version_info < (3, 4):
+        install_requires.append('enum34')
+    return install_requires
+
+
 setup(
-    name='iso 3166-1',
+    name='python-iso3166',
     version=get_version(),
     description='ISO 3361-1 Country code package for Python',
     long_description=readme(),
@@ -35,9 +50,14 @@ setup(
     author='Kang Hyojun',
     author_email='ed' '@' 'spoqa.com',
     packages=find_packages(),
-    package_data={'is3166': ['table.csv']},
+    package_data={'iso3166': ['table.csv']},
     url='http://github.com/spoqa/iso3166',
     keywords='internationalization i18n country iso3166',
+    install_requires=get_install_requirements(),
+    extras_require={
+        'tests': tests_require,
+    },
+    tests_require=tests_require,
     classifiers=[
         'Development Status :: 1 - Planning',
         'Intended Audience :: Developers',

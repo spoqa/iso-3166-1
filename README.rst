@@ -9,7 +9,7 @@ with enum34_ of course support python3.4 as well.
 
 .. code-block::
 
-   >>> from iso3166_1 import Country
+   >>> from iso3166 import Country
    >>> Country.kr
    <Country.kr>
    >>> Country.kr.alpha2

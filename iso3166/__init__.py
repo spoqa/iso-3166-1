@@ -2,6 +2,7 @@ import enum
 import os
 
 
+__version__ = 0, 0, 1
 __all__ = 'Country', 'codes',
 
 
@@ -14,8 +15,8 @@ def read_from_csv(filename, sep='|'):
             table[codes[1]] = {
                 'english_short_name': codes[0],
                 'alpha2': codes[1],
-                'alhpha3': codes[2],
-                'numeric': codes[3],
+                'alpha3': codes[2],
+                'numeric': int(codes[3]),
             }
     return table
 
