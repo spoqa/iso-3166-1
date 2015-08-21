@@ -36,9 +36,15 @@ tests_require = [
 
 def get_install_requirements():
     install_requires = ['setuptools']
-    if sys.version_info < (3, 4):
+    if 'bdist_wheel' not in sys.argv and sys.version_info < (3, 4):
         install_requires.append('enum34')
     return install_requires
+
+
+def get_extras_require():
+    """Generate conditional requirements with environ marker."""
+    for pyversion in '2.5', '2.6', '2.7', '3.2', '3.3':
+        yield ':python_version==' + repr(pyversion), ['enum34']
 
 
 setup(
@@ -54,9 +60,10 @@ setup(
     url='http://github.com/spoqa/iso-3166-1',
     keywords='internationalization i18n country iso3166',
     install_requires=get_install_requirements(),
-    extras_require={
-        'tests': tests_require,
-    },
+    extras_require=dict(
+        get_extras_require(),
+        tests=tests_require
+    ),
     tests_require=tests_require,
     classifiers=[
         'Development Status :: 1 - Planning',
