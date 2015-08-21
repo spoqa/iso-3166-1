@@ -49,3 +49,14 @@ class Country(enum.Enum):
     @property
     def english_short_name(self):
         return codes[self.value]['english_short_name']
+
+    def __str__(self):
+        return self.english_short_name
+
+    def __repr__(self):
+        cls = type(self)
+        typename = getattr(cls, '__qualname__', cls.__name__)
+        return '<%s.%s.%s %r>' % (
+            cls.__module__, typename, self.name,
+            self.english_short_name
+        )
