@@ -25,6 +25,7 @@ with enum34_ of course support python3.4 as well.
    >>> Country.kr.numeric
    410
    >>> Country.kr.english_short_name
+   Korea (Republic of)
 
 
 Written by `Kang Hyojun`_.  Distributed under Public Domain.
