@@ -35,7 +35,7 @@ tests_require = [
 
 
 def get_install_requirements():
-    install_requires = ['setuptools']
+    install_requires = ['setuptools==20.1.1']
     if 'bdist_wheel' not in sys.argv and sys.version_info < (3, 4):
         install_requires.append('enum34')
     return install_requires
